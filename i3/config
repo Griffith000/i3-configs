@@ -93,7 +93,7 @@ bindsym F7 exec brightnessctl set 10%-
 exec_always --no-startup-id xinput set-prop "ELAN1203:00 04F3:307A Touchpad" "libinput Natural Scrolling Enabled" 1
 
 #compositor
-exec --no-startup-id picom
+exec_always --no-startup-id picom --config ~/.config/picom/picom.conf &
 
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg
 
