@@ -65,7 +65,7 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id i3-battery-popup -n -l 30 -L 15 -m "Warning: Battery Low!" -c "echo 'Battery low! Please plug in your charger.'" -t 30 -s "/home/ghassen/Music/LowBattery.wav"
 
 #polybar 
-exec_always --no-startup-id killall polybar
+#exec_always --no-startup-id killall polybar
 #exec_always --no-startup-id polybar
 exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
 exec i3-layouts
