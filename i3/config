@@ -58,6 +58,10 @@ default_floating_border pixel 1
 #copyQ clip manager 
 bindsym $mod+q exec --no-startup-id copyq show
 
+#stop screen blackout after 15 minutes of innactivity
+exec --no-startup-id xset s off
+exec --no-startup-id xset -dpms
+
 #pop up for pkexec
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
