@@ -1,0 +1,39 @@
+[global]
+frame_color = "#89b4fa"
+separator_color= frame
+highlight = "#89b4fa"
+indicate_hidden = yes
+transparency = 0
+shrink = no
+font = monospace 18
+word_wrap = yes
+ellipsis = middle
+ignore_newline = no
+sticky_history= yes
+history_length = 20
+follow = keyboard
+width = (0, 1500)
+height = 950
+origin = bottom-right
+offset = 48x60
+scale = 0
+notification_limit = 10
+padding = 15
+horizontal_padding = 15
+icon_theme = "Papirus-Dark"
+icon_position = left
+icon_size = 48
+gap_size = 12
+
+[urgency_low]
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+
+[urgency_normal]
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+
+[urgency_critical]
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+frame_color = "#fab387"
