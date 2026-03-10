@@ -9,45 +9,9 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-#catpuccin colors
-# set $rosewater #f5e0dc
-# set $flamingo #f2cdcd
-# set $pink #f5c2e7
-# set $mauve #cba6f7
-# set $red #f38ba8
-# set $maroon #eba0ac
-# set $peach #fab387
-# set $yellow #f9e2af
-# set $green #a6e3a1
-# set $teal #94e2d5
-# set $sky #89dceb
-# set $sapphire #74c7ec
-# set $blue #89b4fa
-# set $lavender #b4befe
-# set $text #cdd6f4
-# set $subtext1 #bac2de
-# set $subtext0 #a6adc8
-# set $overlay2 #9399b2
-# set $overlay1 #7f849c
-# set $overlay0 #6c7086
-# set $surface2 #585b70
-# set $surface1 #45475a
-# set $surface0 #313244
-# set $base #1e1e2e
-# set $mantle #181825
-# set $crust #11111b
 
-
-# target                 title     bg    text   indicator  border
-# client.focused           $lavender $base $text  $rosewater $lavender
-# client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
-# client.unfocused         $overlay0 $base $text  $rosewater $overlay0
-# client.urgent            $peach    $base $peach $overlay0  $peach
-# client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
-# client.background        $base
-
-# set alt as the suepr key
-set $mod Mod1
+# set window as the suepr key
+set $mod Mod4
 
 hide_edge_borders none 
 #remove default window frame 
@@ -66,18 +30,19 @@ exec --no-startup-id xset -dpms
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 #pop up for battery shit
-exec --no-startup-id i3-battery-popup -n -l 30 -L 15 -m "Warning: Battery Low!" -c "echo 'Battery low! Please plug in your charger.'" -t 30 -s "/home/ghassen/Music/LowBattery.wav"
+#exec --no-startup-id i3-battery-popup -n -l 30 -L 15 -m "Warning: Battery Low!" -c "echo 'Battery low! Please plug in your charger.'" -t 30 -s "/home/ghassen/Music/LowBattery.wav"
 
 #polybar 
 #exec_always --no-startup-id killall polybar
 #exec_always --no-startup-id polybar
 exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
+
 exec i3-layouts
+
 #wallpaper with feh
 exec_always feh --bg-scale ~/wallhaven-mlpprm.jpg
 
 #rofi
-#bindsym  $mod+g exec rofi -show combi
 bindsym $mod+g exec --no-startup-id ~/.config/rofi/launchers/type-3/launcher.sh
 
 # screen shot tool 
@@ -88,7 +53,7 @@ bindsym F8 exec brightnessctl set +10%
 bindsym F7 exec brightnessctl set 10%-
 
 #use caps key as escape
-#exec_always --no-startup-id sh -c 'sleep 1 && xmodmap ~/.Xmodmap'
+exec_always --no-startup-id sh -c 'sleep 1 && xmodmap ~/.Xmodmap'
 
 #make scroll wheel work like a charm (natural scrolling)
 #exec --no-startup-id xinput set-prop 11 "libinput Natural Scrolling Enabled" 1
@@ -99,7 +64,7 @@ exec_always --no-startup-id xinput set-prop "ELAN1203:00 04F3:307A Touchpad" "li
 exec xinput set-prop "ELAN1203:00 04F3:307A Touchpad" "libinput Tapping Enabled" 1
 
 #compositor
-exec_always --no-startup-id picom --config ~/.config/picom/picom.conf &
+# exec --no-startup-id picom --config ~/.config/picom/picom.conf &
 
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg
 
@@ -131,7 +96,9 @@ exec --no-startup-id /usr/lib/blueberry/blueberry-tray.py
 exec --no-startup-id /usr/lib/blueberry/blueberry-obex-agent.py
 
 #volume controller
-exec_always --no-startup-id volctl
+# exec_always --no-startup-id volctl
+bindsym $mod+Shift+v exec pavucontrol
+exec --no-startup-id pnmixer
 
 # numlock on startup
 exec_always --no-startup-id numlockx on
