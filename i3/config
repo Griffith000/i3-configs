@@ -29,10 +29,10 @@ exec --no-startup-id xset -dpms
 #pop up for pkexec
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
-#pop up for battery shit
-#exec --no-startup-id i3-battery-popup -n -l 30 -L 15 -m "Warning: Battery Low!" -c "echo 'Battery low! Please plug in your charger.'" -t 30 -s "/home/ghassen/Music/LowBattery.wav"
+#pop up for battery notification at 15%
+exec --no-startup-id i3-battery-popup -n -l 15 -L 15 -m "Warning: Battery Low!" -t 30
 
-#polybar 
+#polybar
 #exec_always --no-startup-id killall polybar
 #exec_always --no-startup-id polybar
 exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
