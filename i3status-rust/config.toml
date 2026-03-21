@@ -1,0 +1,46 @@
+[theme]
+theme = "plain"
+
+[icons]
+icons = "material-nf"
+
+[[block]]
+block = "cpu"
+interval = 1
+format = " $icon $utilization "
+
+[[block]]
+block = "memory"
+interval = 2
+format = " $icon $mem_used_percents "
+
+[[block]]
+block = "backlight"
+format = " $icon $brightness "
+# scroll up/down to adjust, click opens rofi brightness applet
+[[block.click]]
+button = "left"
+cmd = "~/.config/rofi/applets/bin/brightness.sh"
+
+[[block]]
+block = "sound"
+format = " $icon $volume "
+driver = "pulseaudio"
+# scroll up/down adjusts volume natively, click opens pavucontrol
+[[block.click]]
+button = "left"
+cmd = "pavucontrol"
+
+[[block]]
+block = "battery"
+format = " $icon $percentage $time "
+driver = "upower"
+[[block.click]]
+button = "left"
+cmd = "~/.config/rofi/applets/bin/battery.sh"
+
+[[block]]
+block = "time"
+interval = 1
+format = "$icon $timestamp.datetime(f:'%m-%d-%Y %H:%M:%S') "
+
