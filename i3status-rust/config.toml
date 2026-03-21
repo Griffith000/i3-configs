@@ -26,6 +26,7 @@ cmd = "~/.config/rofi/applets/bin/brightness.sh"
 block = "sound"
 format = " $icon $volume "
 driver = "pulseaudio"
+max_vol = 100
 # scroll up/down adjusts volume natively, click opens pavucontrol
 [[block.click]]
 button = "left"
