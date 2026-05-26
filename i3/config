@@ -32,11 +32,17 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 #pop up for battery notification at 15%
 exec --no-startup-id i3-battery-popup -n -l 15 -L 15 -m "Warning: Battery Low!" -t 30
 
-#polybar
+#polybar (temporarily disabled)
 #exec_always --no-startup-id killall polybar
 #exec_always --no-startup-id polybar
-exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
+#exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
+
 bar {
+    status_command i3status-rs ~/.config/i3status-rust/config.toml
+    position top
+    font pango:JetBrainsMono Nerd Font 12, Font Awesome 6 Free 12
+    tray_output eDP-1-1
+}
 
 exec i3-layouts
 
@@ -45,6 +51,7 @@ exec_always feh --bg-scale ~/wallhaven-mlpprm.jpg
 
 #rofi
 bindsym $mod+g exec --no-startup-id ~/.config/rofi/launchers/type-3/launcher.sh
+bindsym $mod+o exec --no-startup-id ~/.config/rofi/applets/bin/powermenu.sh
 
 # screen shot tool 
 bindsym $mod+p exec flameshot gui
@@ -90,10 +97,10 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
+exec_always --no-startup-id nm-applet
 
 # bluethooth icon and settings
-exec --no-startup-id /usr/lib/blueberry/blueberry-tray.py
+exec_always --no-startup-id /usr/lib/blueberry/blueberry-tray.py
 exec --no-startup-id /usr/lib/blueberry/blueberry-obex-agent.py
 
 #volume controller
